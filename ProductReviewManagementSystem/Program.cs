@@ -40,6 +40,7 @@ namespace ProductReviewManagementSystem
 
             Management management = new Management();
             management.TopRecords(productReviewList);
+            management.SelectRecords(productReviewList);
         }
     }
 }
