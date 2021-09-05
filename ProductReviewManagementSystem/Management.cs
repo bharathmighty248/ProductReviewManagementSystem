@@ -94,5 +94,14 @@ namespace ProductReviewManagementSystem
                 Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
             }
         }
+
+        public void AverageRatingPerProductId(List<ProductReview> review)
+        {
+            var recordedData = review.GroupBy(x => x.ProductId).Select(x => new { ProductId = x.Key, AverageRating = x.Average(x => x.Rating) });
+            foreach(var list in recordedData)
+            {
+                Console.WriteLine(list.ProductId+ "------" + list.AverageRating);
+            }
+        }
     }
 }
