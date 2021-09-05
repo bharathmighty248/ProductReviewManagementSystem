@@ -34,13 +34,41 @@ namespace ProductReviewManagementSystem
             new ProductReview() { ProductId = 25, UserId = 10, Rating = 5, Review = "Good", isLike = true },
         };
 
+        public static int choice;
+        public static Management management = new Management();
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome To Product Review Management System");
 
-            Management management = new Management();
-            management.TopRecords(productReviewList);
-            management.SelectRecords(productReviewList);
+            do
+            {
+                Console.WriteLine("____________________________________________________________\n");
+                Console.Write("1. Retrieve Top 3 Records Whose Rating is High\n" +
+                    "2. Retrieve Records Whose Rating is Above 3 of ProductID 1, 4 & 9\n" +
+                    "3. Retrieve Count Of Review Present For Each ProductID\n" +
+                    "Select One Option: ");
+                choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("____________________________________________________________\n");
+                switch (choice)
+                {
+                    case 1:
+                        management.TopRecords(productReviewList);
+                        break;
+                    case 2:
+                        management.SelectRecords(productReviewList);
+                        break;
+                    case 3:
+                        management.RetrieveCountOfRecords(productReviewList);
+                        break;
+                    case 0:
+                        Console.WriteLine("-----Thankyou-----");
+                        break;
+                    default:
+                        Console.WriteLine("-----Invalid Option-----");
+                        break;
+                }
+            }
+            while (choice != 0);
         }
     }
 }
