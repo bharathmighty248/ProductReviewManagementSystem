@@ -62,5 +62,26 @@ namespace ProductReviewManagementSystem
             }
         }
 
+        public void ProductReviewDataTable(List<ProductReview> review)
+        {
+            var recordedData = from productReview in review select productReview;
+            
+            dataTable.Columns.Add("ProductId").DataType = typeof(int);
+            dataTable.Columns.Add("UserId").DataType = typeof(int);
+            dataTable.Columns.Add("Rating").DataType = typeof(double);
+            dataTable.Columns.Add("Review").DataType = typeof(string);
+            dataTable.Columns.Add("isLike").DataType = typeof(bool);
+
+            foreach(var list in recordedData)
+            {
+                dataTable.Rows.Add(list.ProductId, list.UserId, list.Rating, list.Review, list.isLike);
+            }
+
+            var productTable = from item in dataTable.AsEnumerable() select item;
+            foreach(DataRow row in productTable)
+            {
+                Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
+            }
+        }
     }
 }

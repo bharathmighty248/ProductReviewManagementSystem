@@ -48,6 +48,7 @@ namespace ProductReviewManagementSystem
                     "3. Retrieve Count Of Review Present For Each ProductID\n" +
                     "4. Retrieve ProductId And Review\n" +
                     "5. Skip Top 5 Records\n" +
+                    "6. Product Review DataTable\n" +
                     "0. Exit\n" +
                     "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -69,9 +70,12 @@ namespace ProductReviewManagementSystem
                     case 5:
                         management.SkipTopFiveRecords(productReviewList);
                         break;
+                    case 6:
+                        management.ProductReviewDataTable(productReviewList);
+                        break;
                     case 0:
-                        Console.WriteLine("____________________________________________________________\n");
                         Console.WriteLine("--------------------------Thankyou--------------------------");
+                        Console.WriteLine("____________________________________________________________\n");
                         break;
                     default:
                         Console.WriteLine("-----------------------Invalid Option-----------------------");
