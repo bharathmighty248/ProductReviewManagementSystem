@@ -83,5 +83,16 @@ namespace ProductReviewManagementSystem
                 Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
             }
         }
+
+        public void RetrieveAllRecordsWhoseIsLikeValueIsTrueFromTable()
+        {
+            var productTable = from products in this.dataTable.AsEnumerable()
+                               where products.Field<bool>("isLike").Equals(true)
+                               select products;
+            foreach(DataRow row in productTable)
+            {
+                Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
+            }
+        }
     }
 }

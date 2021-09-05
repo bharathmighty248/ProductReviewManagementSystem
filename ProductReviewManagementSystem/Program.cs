@@ -49,6 +49,7 @@ namespace ProductReviewManagementSystem
                     "4. Retrieve ProductId And Review\n" +
                     "5. Skip Top 5 Records\n" +
                     "6. Product Review DataTable\n" +
+                    "7. Retrieve All Records Whose IsLike Value Is True From Table\n" +
                     "0. Exit\n" +
                     "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -72,6 +73,9 @@ namespace ProductReviewManagementSystem
                         break;
                     case 6:
                         management.ProductReviewDataTable(productReviewList);
+                        break;
+                    case 7:
+                        management.RetrieveAllRecordsWhoseIsLikeValueIsTrueFromTable();
                         break;
                     case 0:
                         Console.WriteLine("--------------------------Thankyou--------------------------");
