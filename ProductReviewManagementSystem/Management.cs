@@ -44,12 +44,22 @@ namespace ProductReviewManagementSystem
 
         public void RetrieveProductIdAndReview(List<ProductReview> review)
         {
-            var recordData = review.Select(x => new { ProductId = x.ProductId, Review = x.Review });
-            Console.WriteLine("ProductId And Review");
-            foreach (var list in recordData)
+            var recordedData = review.Select(x => new { ProductId = x.ProductId, Review = x.Review });
+            Console.WriteLine("ProductId And Review ");
+            foreach (var list in recordedData)
             {
                 Console.WriteLine(list.ProductId + "----------" + list.Review);
             }
         }
+
+        public void SkipTopFiveRecords(List<ProductReview> review)
+        {
+            var recordedData = (from productReview in review select productReview).Skip(5);
+            foreach (var list in recordedData)
+            {
+                Console.WriteLine("ProductId: " + list.ProductId + " " + "UserId: " + list.UserId + " " + "Rating: " + list.Rating + " " + "Review: " + list.Review + " " + "IsLike: " + list.isLike);
+            }
+        }
+
     }
 }
