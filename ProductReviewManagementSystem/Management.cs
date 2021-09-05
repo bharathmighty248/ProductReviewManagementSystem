@@ -44,6 +44,7 @@ namespace ProductReviewManagementSystem
 
         public void RetrieveProductIdAndReview(List<ProductReview> review)
         {
+
             var recordedData = review.Select(x => new { ProductId = x.ProductId, Review = x.Review });
             Console.WriteLine("ProductId And Review ");
             foreach (var list in recordedData)
