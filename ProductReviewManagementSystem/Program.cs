@@ -32,6 +32,12 @@ namespace ProductReviewManagementSystem
             new ProductReview() { ProductId = 23, UserId = 8, Rating = 1, Review = "VeryBad", isLike = false },
             new ProductReview() { ProductId = 24, UserId = 9, Rating = 1, Review = "VeryBad", isLike = false },
             new ProductReview() { ProductId = 25, UserId = 10, Rating = 5, Review = "Good", isLike = true },
+            new ProductReview() { ProductId = 10, UserId = 10, Rating = 4, Review = "Nice", isLike = true },
+            new ProductReview() { ProductId = 15, UserId = 10, Rating = 3, Review = "NotBad", isLike = false },
+            new ProductReview() { ProductId = 12, UserId = 10, Rating = 5, Review = "Good", isLike = true },
+            new ProductReview() { ProductId = 7, UserId = 10, Rating = 3, Review = "NotBad", isLike = false },
+            new ProductReview() { ProductId = 16, UserId = 10, Rating = 2, Review = "Bad", isLike = false },
+            new ProductReview() { ProductId = 9, UserId = 10, Rating = 1, Review = "VeryBad", isLike = false },
         };
 
         public static int choice;
@@ -52,6 +58,7 @@ namespace ProductReviewManagementSystem
                     "7. Retrieve All Records Whose IsLike Value Is True From Table\n" +
                     "8. Average Rating Per ProductId\n" +
                     "9. Retrieve Records By Review As Nice\n" +
+                    "10. Retrieve Records Of UserId 10\n" +
                     "0. Exit\n" +
                     "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -84,6 +91,9 @@ namespace ProductReviewManagementSystem
                         break;
                     case 9:
                         management.RetrieveRecordsByReviewAsNice(productReviewList);
+                        break;
+                    case 10:
+                        management.RetrieveRecordsOfUserId10();
                         break;
                     case 0:
                         Console.WriteLine("--------------------------Thankyou--------------------------");

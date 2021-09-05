@@ -78,9 +78,10 @@ namespace ProductReviewManagementSystem
             }
 
             var productTable = from item in dataTable.AsEnumerable() select item;
-            foreach(DataRow row in productTable)
+            Console.WriteLine("ProductId  UserId  Rating     Review      IsLike");
+            foreach (DataRow row in productTable)
             {
-                Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
+                Console.WriteLine(row.Field<int>("ProductId") + "          " + row.Field<int>("UserId") + "       " + row.Field<double>("Rating") + "          " + row.Field<string>("Review") + "       " + row.Field<bool>("isLike"));
             }
         }
 
@@ -89,9 +90,10 @@ namespace ProductReviewManagementSystem
             var productTable = from products in this.dataTable.AsEnumerable()
                                where products.Field<bool>("isLike").Equals(true)
                                select products;
-            foreach(DataRow row in productTable)
+            Console.WriteLine("ProductId  UserId  Rating     Review      IsLike");
+            foreach (DataRow row in productTable)
             {
-                Console.WriteLine(row.Field<int>("ProductId") + " " + row.Field<int>("UserId") + " " + row.Field<double>("Rating") + " " + row.Field<string>("Review") + " " + row.Field<bool>("isLike"));
+                Console.WriteLine(row.Field<int>("ProductId") + "          " + row.Field<int>("UserId") + "       " + row.Field<double>("Rating") + "          " + row.Field<string>("Review") + "       " + row.Field<bool>("isLike"));
             }
         }
 
@@ -112,6 +114,19 @@ namespace ProductReviewManagementSystem
             foreach (var list in recordedData)
             {
                 Console.WriteLine("ProductId: " + list.ProductId + " " + "UserId: " + list.UserId + " " + "Rating: " + list.Rating + " " + "Review: " + list.Review + " " + "IsLike: " + list.isLike);
+            }
+        }
+
+        public void RetrieveRecordsOfUserId10()
+        {
+            var productTable = from productReviews in this.dataTable.AsEnumerable()
+                               where productReviews.Field<int>("UserId").Equals(10)
+                               orderby productReviews.Field<double>("Rating") descending
+                               select productReviews;
+            Console.WriteLine("ProductId  UserId  Rating     Review      IsLike");
+            foreach (DataRow row in productTable)
+            {
+                Console.WriteLine(row.Field<int>("ProductId") + "          " + row.Field<int>("UserId") + "       " + row.Field<double>("Rating") + "          " + row.Field<string>("Review") + "       " + row.Field<bool>("isLike"));
             }
         }
     }
