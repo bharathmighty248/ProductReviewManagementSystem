@@ -51,6 +51,7 @@ namespace ProductReviewManagementSystem
                     "6. Product Review DataTable\n" +
                     "7. Retrieve All Records Whose IsLike Value Is True From Table\n" +
                     "8. Average Rating Per ProductId\n" +
+                    "9. Retrieve Records By Review As Nice\n" +
                     "0. Exit\n" +
                     "Select One Option: ");
                 choice = Convert.ToInt32(Console.ReadLine());
@@ -80,6 +81,9 @@ namespace ProductReviewManagementSystem
                         break;
                     case 8:
                         management.AverageRatingPerProductId(productReviewList);
+                        break;
+                    case 9:
+                        management.RetrieveRecordsByReviewAsNice(productReviewList);
                         break;
                     case 0:
                         Console.WriteLine("--------------------------Thankyou--------------------------");
